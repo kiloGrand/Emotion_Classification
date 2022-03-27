@@ -19,7 +19,7 @@ emotion_labels = {
     2: "neutral",
 }
 
-emotion_model_path = 'Emotion_Classification/train/model_xce.h5'
+emotion_model_path = './train/model_xce.h5'
 emotion_classifier = load_model(emotion_model_path, compile=False)  # 导入模型
 input_shape = emotion_classifier.input_shape[1:3]  # 获取输入图片的大小，用于缩放图片
 Face_detect = cv2.CascadeClassifier("Emotion_Classification/haarcascade_frontalface_default.xml")  # 导入人脸检测模型
@@ -29,7 +29,7 @@ for emotion in emotion_labels.values():  # 取出emojis图片
     emojis.append(cv2.imread('Emotion_Classification/img/emojis/' + emotion + '.png', -1))
 emojis = np.array(emojis).astype('float32')
 
-video_path = "Emotion_Classification/img/test_video.mp4"
+video_path = "./img/test_video.mp4"
 # video_path = 0
 cap = cv2.VideoCapture(video_path)  # 参数是0，表示打开笔记本的内置摄像头，参数是视频文件路径则打开视频
 cv2.namedWindow('Emotion Detection of Humans(press q to quit)', cv2.WINDOW_NORMAL)  # 设置窗口大小

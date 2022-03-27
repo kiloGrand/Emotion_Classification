@@ -20,10 +20,10 @@ emotion_labels = {
     2: "中性",
 }
 
-emotion_model_path = 'Emotion_Classification/train/model_xce.h5'
+emotion_model_path = './train/model_xce.h5'
 emotion_classifier = load_model(emotion_model_path, compile=False)  # 导入模型
 
-img = cv2.imread("Emotion_Classification/img/test.jpeg")  # 读取检测图像
+img = cv2.imread("./img/test.jpeg")  # 读取检测图像
 gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # 转换成灰度图
 face_detect = cv2.CascadeClassifier("Emotion_Classification/haarcascade_frontalface_default.xml")
 faces_location = face_detect.detectMultiScale(gray_image, 1.3, 5)  # 人脸检测
@@ -56,7 +56,7 @@ print("The shape of gray faces:", gray_faces.shape)
 print("Output of mini xception:\n", emotion_prediction)
 print("Result:", result)
 
-fontpath = "Emotion_Classification/simsun.ttc"  # 新宋体字体文件
+fontpath = "./simsun.ttc"  # 新宋体字体文件
 font_simsun = ImageFont.truetype(fontpath, 20)  # 加载字体, 字体大小
 i = 0
 for (x, y, w, h) in faces_location:

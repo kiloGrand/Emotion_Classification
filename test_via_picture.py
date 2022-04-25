@@ -25,7 +25,7 @@ emotion_classifier = load_model(emotion_model_path, compile=False)  # 导入模�
 
 img = cv2.imread("./img/test.jpeg")  # 读取检测图像
 gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # 转换成灰度图
-face_detect = cv2.CascadeClassifier("Emotion_Classification/haarcascade_frontalface_default.xml")
+face_detect = cv2.CascadeClassifier("./haarcascade_frontalface_default.xml")
 faces_location = face_detect.detectMultiScale(gray_image, 1.3, 5)  # 人脸检测
 
 input_shape = emotion_classifier.input_shape[1:3]  # 获取输入图片的大小，用于缩放图片

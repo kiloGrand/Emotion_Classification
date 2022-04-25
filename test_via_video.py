@@ -22,11 +22,11 @@ emotion_labels = {
 emotion_model_path = './train/model_xce.h5'
 emotion_classifier = load_model(emotion_model_path, compile=False)  # 导入模型
 input_shape = emotion_classifier.input_shape[1:3]  # 获取输入图片的大小，用于缩放图片
-Face_detect = cv2.CascadeClassifier("Emotion_Classification/haarcascade_frontalface_default.xml")  # 导入人脸检测模型
+Face_detect = cv2.CascadeClassifier("./haarcascade_frontalface_default.xml")  # 导入人脸检测模型
 
 emojis = []
 for emotion in emotion_labels.values():  # 取出emojis图片
-    emojis.append(cv2.imread('Emotion_Classification/img/emojis/' + emotion + '.png', -1))
+    emojis.append(cv2.imread('./img/emojis/' + emotion + '.png', -1))
 emojis = np.array(emojis).astype('float32')
 
 video_path = "./img/test_video.mp4"
